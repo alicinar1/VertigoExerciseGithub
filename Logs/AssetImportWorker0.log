@@ -405,3 +405,9 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 72.213253 seconds.
+  path: Assets/NewBehaviourScript.cs
+  artifactKey: Guid(c2e9296154ff637438b57a34e130fbef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NewBehaviourScript.cs using Guid(c2e9296154ff637438b57a34e130fbef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5a7474ff61ef6860b323460395e0ff4') in 0.012043 seconds 
