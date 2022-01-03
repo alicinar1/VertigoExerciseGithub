@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Project
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 21
+  controlID: 115
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 13131
+  controlID: 120
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 13132
+  controlID: 121
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -343,22 +343,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/TopDownShooter/Art/ADG_Textures/ground_vol1/ground6
+    - Assets/TopDownShooter/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/TopDownShooter/Art/ADG_Textures/ground_vol1/ground6
+  - Assets/TopDownShooter/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\muham\Desktop\Work\Coding\GameDevUnity\Egzersiz\VertigoExercise
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 50}
-    m_SelectedIDs: 12810000
-    m_LastClickedID: 33042
-    m_ExpandedIDs: 0000000040680000526a0000d0710000287200002c720000ce750000208100002481000000ca9a3b
+    scrollPos: {x: 0, y: 46}
+    m_SelectedIDs: 24590000
+    m_LastClickedID: 22820
+    m_ExpandedIDs: 00000000025900000a5900000e590000105900001259000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -386,7 +386,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 0000000002590000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -514,9 +514,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 3e590000
       m_LastClickedID: 0
-      m_ExpandedIDs: 3ae0feff5c71ffff4089fffff6f4ffffd2f5ffffc0f6fffffef6ffffe4f7ffff20f8ffff74f8ffffb0f8fffffcf8ffff50f9ffff36fbffff
+      m_ExpandedIDs: 6ef9fffff6faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -816,11 +816,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.030848715, y: 0.96914846, z: -0.17216328, w: 0.17365418}
     speed: 2
-    m_Value: {x: 0.030848773, y: 0.96915025, z: -0.17216359, w: 0.17365451}
+    m_Value: {x: 0.030848715, y: 0.96914846, z: -0.1721633, w: 0.17365418}
   m_Size:
     m_Target: 13.186531
     speed: 2
-    m_Value: 13.807886
+    m_Value: 13.186531
   m_Ortho:
     m_Target: 0
     speed: 2
