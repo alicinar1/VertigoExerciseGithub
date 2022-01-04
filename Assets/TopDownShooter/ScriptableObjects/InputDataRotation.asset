@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f13cb3cba38a67747b06d928d85897d5, type: 3}
-  m_Name: PlayerInputData
+  m_Name: InputDataRotation
   m_EditorClassIdentifier: 
   Horizontal: 0
   Vertical: 0
-  _axisActieve: 1
+  _axisActieve: 0
   AxisNameHorizontal: Horizontal
   AxisNameVertical: Vertical
-  _keyBaseHorizontalActieve: 0
-  PositiveHorizontalKeyCode: 0
-  NegativeHorizontalKeyCode: 0
+  _keyBaseHorizontalActieve: 1
+  PositiveHorizontalKeyCode: 113
+  NegativeHorizontalKeyCode: 101
   _keyBaseVerticalActieve: 0
   PositiveVerticalKeyCode: 0
   NegativeVerticalKeyCode: 0

@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcbfad9131b2e0c4f96f3a735e756c07, type: 3}
-  m_Name: LocalPlayerMovementSettings
+  m_Script: {fileID: 11500000, guid: d83624528f070934195a4b9a3426e793, type: 3}
+  m_Name: TowerRotationSettings
   m_EditorClassIdentifier: 
-  HorizontalSpeed: 0.5
-  VerticalSpeed: 0.05
+  towerRotationSpeed: 1
