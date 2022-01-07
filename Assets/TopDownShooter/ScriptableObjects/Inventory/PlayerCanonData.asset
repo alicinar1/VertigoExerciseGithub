@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c09c58a91fb80ac4db5374e2a2582290, type: 3}
   m_Name: PlayerCanonData
   m_EditorClassIdentifier: 
-  _itemID: 
+  _itemID: Default
+  _inventoryDataType: 0
+  _prefab: {fileID: -1302674246267957390, guid: de695fee88325044085a319731f3a519, type: 3}
+  _damage: 0

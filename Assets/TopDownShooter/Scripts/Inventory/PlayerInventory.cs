@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
 
 namespace TopDownShooter.Inventory
 {
@@ -11,6 +12,7 @@ namespace TopDownShooter.Inventory
         private List<AbstractBasePlayerInventoryItemData> _createdDataList;
         [SerializeField] public Transform parent;
 
+        public ReactiveCommand ReactiveShootCommand { get; private set; }
         private void Start()
         {
             InitializeInventory(_playerInventoryItemDatas);
@@ -23,12 +25,19 @@ namespace TopDownShooter.Inventory
 
         public void InitializeInventory(AbstractBasePlayerInventoryItemData[] playerInventoryItemDatas)
         {
-            ClearInventory();            
+            if (ReactiveShootCommand != null)
+            {
+                ReactiveShootCommand.Dispose();
+            }
+            ReactiveShootCommand = new ReactiveCommand();
+
+            ClearInventory();
             _createdDataList = new List<AbstractBasePlayerInventoryItemData>(_playerInventoryItemDatas.Length);
+
             for (int i = 0; i < playerInventoryItemDatas.Length; i++)
             {
                 var instantiated = Instantiate(playerInventoryItemDatas[i]);
-                instantiated.CreateIntoInventory(this);
+                instantiated.Initialize(this);
                 _createdDataList.Add(instantiated);
             }
         }
@@ -43,7 +52,5 @@ namespace TopDownShooter.Inventory
                 }
             }
         }
-
-
     }
 }

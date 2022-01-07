@@ -17,9 +17,14 @@ namespace TopDownShooter.Inventory
             Debug.Log("Scriptable Shoot Manager Destroyed");
         }
 
-        public void Shoot()
+        public void Shoot(Vector3 origin, Vector3 direction)
         {
-
+            RaycastHit hit;
+            var physic = Physics.Raycast(origin, direction, out hit);
+            if (physic)
+            {
+                Debug.Log(hit.collider.name);
+            }
         }
 
     }
