@@ -9,7 +9,9 @@ namespace TopDownShooter.Inventory
         [SerializeField] private Transform _canonShootPoint;
         public void Shoot()
         {
-            ScriptableShootManager._instance.Shoot(_canonShootPoint.position, _canonShootPoint.forward);
+            Debug.Log("falan filan");
+            ScriptableShootManager.Instance.Shoot(_canonShootPoint.position, _canonShootPoint.forward);
+            //ScriptableShootManager.Instance.Shoot(Vector3.zero, Vector3.forward);  
         }
     }
 }

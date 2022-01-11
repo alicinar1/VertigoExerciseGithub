@@ -24,7 +24,7 @@ namespace TopDownShooter.PlayerInput
         [SerializeField] private KeyCode PositiveVerticalKeyCode;
         [SerializeField] private KeyCode NegativeVerticalKeyCode;
 
-        public void ProcessInput()
+        public virtual void ProcessInput()
         {
             if (_axisActieve)
             {

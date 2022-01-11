@@ -19,6 +19,7 @@ namespace TopDownShooter.Inventory
 
         public void Shoot(Vector3 origin, Vector3 direction)
         {
+            Debug.Log("!!!!!!!");
             RaycastHit hit;
             var physic = Physics.Raycast(origin, direction, out hit);
             if (physic)

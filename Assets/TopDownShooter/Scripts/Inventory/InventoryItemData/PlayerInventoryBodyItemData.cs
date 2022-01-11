@@ -9,7 +9,7 @@ namespace TopDownShooter.Inventory
     {
         public override void Initialize(PlayerInventory targetPlayerInventory)
         {
-            var instantiate = InstantiateAndInitializePrefab(targetPlayerInventory.parent);
+            var instantiate = InstantiateAndInitializePrefab(targetPlayerInventory.BodyParent);
             Debug.Log("Body Item Data");
         }
     }

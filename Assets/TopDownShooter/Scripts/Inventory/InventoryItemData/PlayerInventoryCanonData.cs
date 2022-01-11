@@ -16,11 +16,11 @@ namespace TopDownShooter.Inventory
             get { return _damage; }
         }
 
-        [SerializeField] private float rpm = 1f;
+        [SerializeField] private float _rpm = 1f;
 
         public float Rpm
         {
-            get { return rpm = 1f; }
+            get { return _rpm = 1f; }
         }
 
         private float _lastShootTime;
@@ -29,7 +29,7 @@ namespace TopDownShooter.Inventory
         public override void Initialize(PlayerInventory targetPlayerInventory)
         {
             base.Initialize(targetPlayerInventory);
-            InstantiateAndInitializePrefab(targetPlayerInventory.parent);
+            InstantiateAndInitializePrefab(targetPlayerInventory.CannonParent);
             targetPlayerInventory.ReactiveShootCommand.Subscribe(OnReactiveShootCommand).AddTo(_compositeDisposable);
             Debug.Log("Canon Item Data");
         }
@@ -47,15 +47,21 @@ namespace TopDownShooter.Inventory
 
         public void Shoot()
         {
-            if (Time.time - _lastShootTime > rpm)
+            //_instantiated.Shoot();
+            //_lastShootTime = Time.time;
+            //Debug.Log("Shoot");
+
+            if (Time.time - _lastShootTime > _rpm)
             {
                 _instantiated.Shoot();
                 _lastShootTime = Time.time;
-                Debug.Log("Shoot");
+                Debug.Log("Shoot!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             }
             else
             {
                 Debug.Log("You can't shoot now");
+                Debug.Log(Time.time - _lastShootTime);
+                Debug.Log(_rpm);
             }
         }
     }
