@@ -4,11 +4,10 @@ using UnityEngine;
 
 namespace TopDownShooter.PlayerInput
 {
-    [CreateAssetMenu(menuName = "Top Down Shooter/Input/Input Data")]
-    public class InputData : ScriptableObject
+    [CreateAssetMenu(menuName = "Top Down Shooter/Input/Player Input Data")]
+    public class PlayerInputData : AbstractInputData
     {
-        public float Horizontal;
-        public float Vertical;
+
         private float _increaseAmount = 0.015f;
 
         [Header("Axis base control")]
@@ -24,7 +23,7 @@ namespace TopDownShooter.PlayerInput
         [SerializeField] private KeyCode PositiveVerticalKeyCode;
         [SerializeField] private KeyCode NegativeVerticalKeyCode;
 
-        public virtual void ProcessInput()
+        public override void ProcessInput()
         {
             if (_axisActieve)
             {

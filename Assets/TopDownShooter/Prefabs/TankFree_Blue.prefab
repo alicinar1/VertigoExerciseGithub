@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3118345768520705036}
   - component: {fileID: 4190720170455504258}
   - component: {fileID: 669381522290254958}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankFree_Wheel_b_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5778890291274231326}
   - component: {fileID: 6267205589700049478}
   - component: {fileID: 8345211446967234267}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankFree_Wheel_f_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 7384058246379332450}
   - component: {fileID: 1134386578689282393}
   - component: {fileID: 2736887371999396123}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankFree_Wheel_b_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,8 @@ GameObject:
   - component: {fileID: 3123304861088390314}
   - component: {fileID: 1062823738465487985}
   - component: {fileID: 4829572425906351907}
-  m_Layer: 0
+  - component: {fileID: 7936983113830817779}
+  m_Layer: 6
   m_Name: TankFree_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,6 +350,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf9c1f26392e1f449a88fd6b39d49fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &7936983113830817779
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7242831651788711914}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9107852, y: 1.43, z: 2.6642036}
+  m_Center: {x: 0.0000003874302, y: -0.08, z: -0.038929284}
 --- !u!1 &7486752337508220018
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +374,7 @@ GameObject:
   - component: {fileID: 8785065106131450011}
   - component: {fileID: 8631768679765156952}
   - component: {fileID: 3661192950415057279}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankFree_Wheel_f_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}

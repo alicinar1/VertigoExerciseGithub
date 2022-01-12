@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CameraSettingsLocalPlayer
   m_EditorClassIdentifier: 
   _rotationLerpSpeed: 1
-  offset: {x: 0, y: 0.63, z: -3.96}
+  offset: {x: 2.05, y: 3.17, z: -8.34}
   _positionLerpSpeed: 10

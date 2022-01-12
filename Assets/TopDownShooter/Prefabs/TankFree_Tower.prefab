@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 2806882266818093693}
   - component: {fileID: 5887747013806885583}
   - component: {fileID: -1302674246267957390}
-  m_Layer: 0
+  - component: {fileID: 2469113662823471511}
+  m_Layer: 6
   m_Name: TankFree_Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +99,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canonShootPoint: {fileID: 5708824331409649534}
+--- !u!65 &2469113662823471511
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3818264889372824908}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1312094, y: 0.64, z: 1.4090705}
+  m_Center: {x: 0.019938916, y: 0.39621213, z: 0.05}
 --- !u!1 &4516665921439592819
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +123,7 @@ GameObject:
   - component: {fileID: 3336418874695547970}
   - component: {fileID: 3148968118752157534}
   - component: {fileID: 3828934798259109480}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankFree_Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5708824331409649534}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

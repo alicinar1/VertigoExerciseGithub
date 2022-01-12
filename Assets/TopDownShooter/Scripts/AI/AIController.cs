@@ -4,6 +4,7 @@ using TopDownShooter.Inventory;
 using TopDownShooter.PlayerControls;
 using TopDownShooter.PlayerInput;
 using UnityEngine;
+using UniRx;
 
 namespace TopDownShooter.AI
 {
@@ -16,8 +17,12 @@ namespace TopDownShooter.AI
         [SerializeField] private PlayerInventory _playerInventory;
         [SerializeField] private TowerRotationController _towerRotationController;
 
+        public List<AITarget> targetList;
+        private int _currentTargetIndex;
         public Transform TARGET;
         public Transform towerTarget;
+        private Vector3 _targetMovementPosition;
+        private CompositeDisposable _targetDispose;
 
         private void Awake()
         {
@@ -28,25 +33,53 @@ namespace TopDownShooter.AI
             _playerMovementController.InitializeInput(_aIMovementInput);
             _towerRotationController.InitializeInput(_aIRotationInput);
 
+            UpdateTarget();
+
+        }
+
+        public void UpdateTarget()
+        {
+            var position = transform.position;
+            _targetMovementPosition = position + ((targetList[0].transform.position - position).normalized * (Vector3.Distance(targetList[0].transform.position, position) - 10));
+
+            _aIMovementInput.SelectTarget(transform, _targetMovementPosition);
+            _aIRotationInput.SelectTarget(transform, _targetMovementPosition);
+            _towerRotationInput.SelectTarget(_towerRotationController.Tower, targetList[0].transform.position);
+
+            _targetDispose = new CompositeDisposable();
+            targetList[0].OnDeath.Subscribe(OnTargetDeath).AddTo(_targetDispose);
+        }
+
+        public void OnTargetDeath(Unit obj) 
+        {
+            _targetDispose.Dispose();
+            targetList.RemoveAt(0);
+            if (targetList.Count > 0)
+            {
+                UpdateTarget();
+            }
+            else
+            {
+                this.enabled = false;
+            }
         }
 
         private void Update()
         {
-
-            _aIMovementInput.SelectTarget(transform, TARGET.position);
-            _aIRotationInput.SelectTarget(transform, TARGET.position);
-            _towerRotationInput.SelectTarget(_towerRotationController.Tower, towerTarget.position);
-
             _aIMovementInput.ProcessInput();
             _aIRotationInput.ProcessInput();
             _towerRotationInput.ProcessInput();
 
-            if (_towerRotationInput.Horizontal < 2 && Vector3.Distance(TARGET.position, transform.position) < 5)
+            if (_towerRotationInput.Horizontal < 2 && Vector3.Distance(_targetMovementPosition, transform.position) < 5)
             {
                 _playerInventory.ReactiveShootCommand.Execute();
             }
+        }
 
-            //_playerInventory.ReactiveShootCommand.Execute();
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawSphere(_targetMovementPosition, 5);
         }
     }
 }

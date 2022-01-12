@@ -1,21 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TopDownShooter.Stat;
 using UnityEngine;
 
 namespace TopDownShooter.AI
 {
-    public class AITarget : MonoBehaviour
+    public class AITarget : DamagableObjectBase
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        
     }
 }
