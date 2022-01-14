@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/TopDownShooter/Scenes/GameScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/TopDownShooter/Scenes/InitializingScene.unity
+    guid: 95b0316ea9fb97641a71e6bec0aba686
+  - enabled: 1
+    path: Assets/TopDownShooter/Scenes/MainMenu.unity
+    guid: 1faf86104063eab44977db31c471b650
   m_configObjects: {}
