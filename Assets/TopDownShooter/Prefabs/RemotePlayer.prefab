@@ -1,106 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5977680930062254003
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5977680930062254002}
-  - component: {fileID: 5977680930062254000}
-  - component: {fileID: 5977680930062254001}
-  - component: {fileID: 5977680930062254015}
-  m_Layer: 6
-  m_Name: Camera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5977680930062254002
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5977680930062254003}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5977680930206234424}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &5977680930062254000
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5977680930062254003}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!81 &5977680930062254001
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5977680930062254003}
-  m_Enabled: 1
---- !u!114 &5977680930062254015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5977680930062254003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac12cdf6241ddd94a90c21fb370bfdcc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _settings: {fileID: 11400000, guid: 5200ef6ca70e6fc429603429aa6242e1, type: 2}
-  _positionTarget: {fileID: 5977680930882121278}
-  _rotationTarget: {fileID: 5977680930206234424}
-  _cameraTransform: {fileID: 5977680930062254002}
 --- !u!1 &5977680930206234426
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5977680930206234424}
   - component: {fileID: 5977680930206234425}
+  - component: {fileID: -9142566689451254707}
   - component: {fileID: 5977680930206234402}
   - component: {fileID: 5977680930206234406}
   - component: {fileID: 5977680930206234404}
@@ -133,12 +33,11 @@ Transform:
   m_GameObject: {fileID: 5977680930206234426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6629, y: 1.6629, z: 1.6629}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5977680931764790671}
   - {fileID: 5977680930882121278}
-  - {fileID: 5977680930062254002}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -159,6 +58,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 097e5ea4e0f98084ca004958babaef91, type: 2}
   BodyParent: {fileID: 5977680930882121278}
   CannonParent: {fileID: 5977680931764790671}
+--- !u!114 &-9142566689451254707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5977680930206234426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbce2d9843724c249acd84f5f575f7cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damagableObjectBaseArray:
+  - {fileID: 5977680930206234402}
+  _networkPlayer: {fileID: 3704555872820506539}
+  _playerInventory: {fileID: 5977680930206234425}
 --- !u!114 &5977680930206234402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,8 +87,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 5977680930206234404}
-  Health: 100
-  Armor: 100
 --- !u!54 &5977680930206234406
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -222,7 +135,7 @@ MonoBehaviour:
   synchronization: 3
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
-  ownershipTransfer: 0
+  ownershipTransfer: 1
   ObservedComponents:
   - {fileID: 7805365388397837006}
   ObservedComponentsFoldoutOpen: 1
@@ -244,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _photonViewsOwnerShip:
   - {fileID: 2977695617598306817}
-  - {fileID: 3443264928461847952}
+  - {fileID: 7786131014598060863}
 --- !u!114 &7805365388397837006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,8 +276,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5977680931764790671}
-  - component: {fileID: 3443264928461847952}
-  - component: {fileID: 7925047221728029070}
+  - component: {fileID: 7786131014598060863}
+  - component: {fileID: 8748168458576704895}
   m_Layer: 6
   m_Name: CanonParent
   m_TagString: Untagged
@@ -387,7 +300,7 @@ Transform:
   m_Father: {fileID: 5977680930206234424}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3443264928461847952
+--- !u!114 &7786131014598060863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -406,15 +319,15 @@ MonoBehaviour:
   synchronization: 3
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
-  ownershipTransfer: 0
+  ownershipTransfer: 1
   ObservedComponents:
-  - {fileID: 7925047221728029070}
+  - {fileID: 8748168458576704895}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
---- !u!114 &7925047221728029070
+--- !u!114 &8748168458576704895
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

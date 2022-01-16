@@ -24,7 +24,7 @@ namespace TopDownShooter.AI
         private Vector3 _targetMovementPosition;
         private CompositeDisposable _targetDispose;
 
-        private void Awake()
+        private void Start()
         {
             _aIMovementInput = Instantiate(_aIMovementInput);
             _aIRotationInput = Instantiate(_aIRotationInput);
@@ -47,7 +47,7 @@ namespace TopDownShooter.AI
             _towerRotationInput.SelectTarget(_towerRotationController.Tower, targetList[0].transform.position);
 
             _targetDispose = new CompositeDisposable();
-            targetList[0].OnDeath.Subscribe(OnTargetDeath).AddTo(_targetDispose);
+            targetList[0].PlayerStat.OnDeath.Subscribe(OnTargetDeath).AddTo(_targetDispose);
         }
 
         public void OnTargetDeath(Unit obj) 

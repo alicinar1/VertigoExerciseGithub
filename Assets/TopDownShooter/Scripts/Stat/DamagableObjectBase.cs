@@ -6,14 +6,13 @@ using TopDownShooter.Inventory;
 
 namespace TopDownShooter.Stat
 {
-    public class DamagableObjectBase : MonoBehaviour, IDamagable
+    public class DamagableObjectBase : MonoBehaviour, IDamagable, IPlayerStatHolder
     {
         [SerializeField] private Collider _collider;
         public int InstanceID { get; private set; }
-        public float Health = 100;
-        public float Armor = 100;
-        private bool _isDead = false;
-        public ReactiveCommand OnDeath = new ReactiveCommand();
+
+        public PlayerStat PlayerStat { get; private set; }
+
 
         private Vector3 _defaultScale;
 
@@ -33,47 +32,28 @@ namespace TopDownShooter.Stat
         {
             if (dmg.TimeBasedDamage > 0)
             {
-                StartCoroutine(TimeBasedDamage(dmg.TimeBasedDamage, dmg.TimeBasedDamageDuration));
-            }
-            if (Armor > 0)
-            {
-                Armor -= dmg.Damage * dmg.ArmorPenentration;
+                StartCoroutine(TimeBasedDamage(dmg.TimeBasedDamage, dmg.TimeBasedDamageDuration, dmg.Stat));
             }
             else
             {
-                Debug.Log("You Damaged me: " + dmg.Damage);
-                Health -= dmg.Damage;
-                Health += Armor;
-                CheckHealt();
-            }            
+                PlayerStat.Damage(dmg);
+            }
+           
         }
 
-
-        IEnumerator TimeBasedDamage(float damage, float totalDuration)
+        IEnumerator TimeBasedDamage(float damage, float totalDuration, PlayerStat playerStat)
         {
             while (totalDuration > 0)
             {
                 yield return new WaitForSeconds(1);
                 totalDuration -= 1;
-                Health -= damage;
-                CheckHealt();
+                PlayerStat.Damage(damage, playerStat);
             }
         }
 
-        private void CheckHealt()
+        public void SetStat(PlayerStat stat)
         {
-            if (_isDead)
-            {
-                return;
-            }
-
-            if (Health <= 0)
-            {
-                StopAllCoroutines();
-                _isDead = true;
-                OnDeath.Execute();
-                Destroy(gameObject);
-            }
+            PlayerStat = stat;
         }
     }
 }

@@ -5,9 +5,32 @@ using UniRx;
 
 namespace TopDownShooter.Network
 {
-    public enum PlayerNetworkState { Offline, Connecting, Connected, JoiningRoom, InRoom }
+    public enum PlayerNetworkState { None, Offline, Connecting, Connected, JoiningRoom, LeavingRoom, InRoom }
     public class MatchMakingController : Photon.PunBehaviour
     {
+        private PlayerNetworkState _currentNetworkSatate = PlayerNetworkState.None;
+
+        public PlayerNetworkState CurrentNetworkState
+        {
+            get { return _currentNetworkSatate; }
+            set
+            {
+                bool sendEvent = false;
+
+                if (value != _currentNetworkSatate)
+                {
+                    sendEvent = true;
+                }
+
+                _currentNetworkSatate = value;
+
+                if (sendEvent)
+                {
+                    MessageBroker.Default.Publish(new EventPlayerNetworkStateChange(_currentNetworkSatate));
+                }
+            }
+        }
+
         private static volatile MatchMakingController instance = null;
         public static MatchMakingController Instance
         {
@@ -24,54 +47,57 @@ namespace TopDownShooter.Network
 
         private float _delayToConnect = 1;
         public const string _NetworkVersion = "v1.0";
+
         private void Awake()
         {
             int i = Instance.GetHashCode();
             Debug.Log(i);
+            PhotonNetwork.CacheSendMonoMessageTargets(typeof(MatchMakingController));
         }
 
         private IEnumerator Start()
         {
-            MessageBroker.Default.Publish(new EventPlayerNetworkStateChange(PlayerNetworkState.Offline));
-            yield return new WaitForSeconds(_delayToConnect);
-            MessageBroker.Default.Publish(new EventPlayerNetworkStateChange(PlayerNetworkState.Connecting));
+            CurrentNetworkState = PlayerNetworkState.Offline;
+            yield return new WaitForEndOfFrame();
+            CurrentNetworkState = PlayerNetworkState.Connecting;
             PhotonNetwork.ConnectUsingSettings(_NetworkVersion);
         }
 
         public void CreateRoom()
         {
-            MessageBroker.Default.Publish(new EventPlayerNetworkStateChange(PlayerNetworkState.JoiningRoom));
+            CurrentNetworkState = PlayerNetworkState.JoiningRoom;
             PhotonNetwork.CreateRoom(null);
         }
 
         public void JoinRandomRoom()
         {
-            MessageBroker.Default.Publish(new EventPlayerNetworkStateChange(PlayerNetworkState.JoiningRoom));
+            CurrentNetworkState = PlayerNetworkState.JoiningRoom;
             PhotonNetwork.JoinRandomRoom();
         }
 
         public override void OnJoinedRoom()
         {
             base.OnJoinedRoom();
-            MessageBroker.Default.Publish(new EventPlayerNetworkStateChange(PlayerNetworkState.InRoom));
+            CurrentNetworkState = PlayerNetworkState.InRoom;
+            PhotonNetwork.isMessageQueueRunning = false;
         }
 
         public override void OnLeftRoom()
         {
             base.OnLeftRoom();
-            MessageBroker.Default.Publish(new EventPlayerNetworkStateChange(PlayerNetworkState.Connected));
+            CurrentNetworkState = PlayerNetworkState.Connected;
         }
 
         public override void OnDisconnectedFromPhoton()
         {
             base.OnDisconnectedFromPhoton();
-            MessageBroker.Default.Publish(new EventPlayerNetworkStateChange(PlayerNetworkState.Offline));
+            CurrentNetworkState = PlayerNetworkState.Offline;
         }
 
         public override void OnConnectedToMaster()
         {
             base.OnConnectedToMaster();
-            MessageBroker.Default.Publish(new EventPlayerNetworkStateChange(PlayerNetworkState.Connected));
+            CurrentNetworkState = PlayerNetworkState.Connected;
             Debug.Log("ON CONNECTED TO MASTER");
         }
 
@@ -79,6 +105,12 @@ namespace TopDownShooter.Network
         {
             base.OnJoinedLobby();
             Debug.Log("ON JOINED LOBBY");
+        }
+
+        public void LeaveRoom()
+        {
+            CurrentNetworkState = PlayerNetworkState.LeavingRoom;
+            PhotonNetwork.LeaveRoom();
         }
     }
 }

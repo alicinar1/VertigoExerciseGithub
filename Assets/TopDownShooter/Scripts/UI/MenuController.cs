@@ -13,20 +13,35 @@ namespace TopDownShooter.UI
     {
         [SerializeField] private TextMeshProUGUI _currentState;
         [SerializeField] private Button[] _networkButtons;
+        [SerializeField] private TMP_InputField _inputField;
 
         private void Awake()
         {
+            UpdateUIWithNetworkState(MatchMakingController.Instance.CurrentNetworkState);
             MessageBroker.Default.Receive<EventPlayerNetworkStateChange>().Subscribe(OnPlayerNetworkState).AddTo(gameObject);
             _currentState.text = "Falan Filan";
+            _inputField.onEndEdit.AddListener(OnEditEnd);
         }
 
-        private void OnPlayerNetworkState(EventPlayerNetworkStateChange networkStateChange)
+        private void OnEditEnd(string arg0)
         {
-            _currentState.text = "Connection state: " + networkStateChange.PlayerNetworkState;
+            PhotonNetwork.playerName = arg0;  
+        }
+
+        private void OnPlayerNetworkState(EventPlayerNetworkStateChange obj)
+        {
+            var networkState = obj.PlayerNetworkState;
+            UpdateUIWithNetworkState(networkState);
+        }
+
+        private void UpdateUIWithNetworkState(PlayerNetworkState networkState)
+        {
+
+            _currentState.text = "Connection state: " + networkState;
 
             for (int i = 0; i < _networkButtons.Length; i++)
             {
-                _networkButtons[i].interactable = networkStateChange.PlayerNetworkState == PlayerNetworkState.Connected;
+                _networkButtons[i].interactable = networkState == PlayerNetworkState.Connected;
             }
         }
 

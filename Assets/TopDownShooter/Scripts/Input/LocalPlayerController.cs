@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TopDownShooter.Inventory;
 using TopDownShooter.PlayerInput;
+using TopDownShooter.Stat;
 
 namespace TopDownShooter.PlayerControls
 {
-    public class LocalPlayerController : MonoBehaviour
+    public class LocalPlayerController : PlayerController
     {
-        [SerializeField] private PlayerInventory _playerInventory;
         [SerializeField] private AbstractInputData _shootInput;
 
         private void Update()
